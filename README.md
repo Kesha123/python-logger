@@ -1,8 +1,6 @@
-Example
--------
+## Example
 
-.. code-block:: python
-
+```
 from python_logger import Logger
 
 class TestClass:
@@ -14,3 +12,4 @@ class TestClass:
 
 a = TestClass()
 a.test()
+```
