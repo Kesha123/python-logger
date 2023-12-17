@@ -9,15 +9,15 @@ class ExampleClass:
     def foo(self, level) -> None:
         match level:
             case logging.DEBUG:
-                self.logger.debug(f"example DEBUG")
+                self.logger.debug("example DEBUG")
             case logging.INFO:
-                self.logger.info(f"example INFO")
+                self.logger.info("example INFO")
             case logging.WARNING:
-                self.logger.warning(f"example WARNING")
+                self.logger.warning("example WARNING")
             case logging.ERROR:
-                self.logger.error(f"example ERROR")
+                self.logger.error("example ERROR")
             case logging.CRITICAL:
-                self.logger.critical(f"example CRITICAL")
+                self.logger.critical("example CRITICAL")
 
 
 example = ExampleClass()
