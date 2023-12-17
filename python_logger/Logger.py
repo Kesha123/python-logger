@@ -1,7 +1,7 @@
 import os
 import logging
 import datetime
-from python_logger.Formatter import CustomFormatter as Formatter
+from python_logger.Formatter import Formatter
 
 class Logger:
     _instance = None
