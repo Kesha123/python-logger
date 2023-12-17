@@ -1,24 +1,47 @@
 import logging
+from python_logger.Colors import Colors
 
-class CustomFormatter(logging.Formatter):
-    grey = '\x1b[38;21m'
-    blue = '\x1b[38;5;39m'
-    yellow = '\x1b[38;5;226m'
-    red = '\x1b[38;5;196m'
-    bold_red = '\x1b[31;1m'
-    reset = '\x1b[0m'
-    green = '\u001b[32;226m'
-    purple = '\e[0;35m'
+class Formatter(logging.Formatter):
 
-    def __init__(self, fmt):
+    def __init__(
+            self,
+            fmt,
+            colored_message = True,
+        ):
         super().__init__()
         self.fmt = fmt
         self.FORMATS = {
-            logging.DEBUG: self.green + self.fmt + self.reset,
-            logging.INFO: self.blue + self.fmt + self.reset,
-            logging.WARNING: self.yellow + self.fmt + self.reset,
-            logging.ERROR: self.red + self.fmt + self.reset,
-            logging.CRITICAL: self.bold_red + self.fmt + self.reset
+            logging.DEBUG:
+                Colors.GREEN_BACKGROUND + "DEBUG" + Colors.END + " " +
+                (
+                    Colors.green + self.fmt + Colors.END if colored_message
+                    else self.fmt
+                ),
+
+            logging.INFO:
+                Colors.CYAN_BACKGROUND  + "INFO" + Colors.END + " " +
+                (
+                    Colors.blue + self.fmt + Colors.END if colored_message
+                    else self.fmt
+                ),
+
+            logging.WARNING:
+                Colors.YELLOW_BACKGROUND + "WARNING" + Colors.END + " " +
+                (
+                    Colors.YELLOW + self.fmt + Colors.END if colored_message
+                    else self.fmt
+                ),
+
+            logging.ERROR:
+                Colors.RED_BACKGROUND  + "ERROR" + Colors.END + " " +
+                (
+                    Colors.red + self.fmt + Colors.END if colored_message
+                    else self.fmt
+                ),
+
+            logging.CRITICAL:
+                Colors.RED_BACKGROUND_BLINK + "CRITICAL"
+                + Colors.END + " " + self.fmt,
         }
 
     def format(self, record):
