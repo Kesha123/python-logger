@@ -7,7 +7,6 @@ class Formatter(logging.Formatter):
             self,
             fmt,
             colored_message = True,
-            warning_yellow = False
         ):
         super().__init__()
         self.fmt = fmt
@@ -27,8 +26,7 @@ class Formatter(logging.Formatter):
                 ),
 
             logging.WARNING:
-                (Colors.YELLOW_BACKGROUND if warning_yellow else Colors.BROWN_BACKGROUND) +
-                "WARNING" + Colors.END + " " +
+                Colors.YELLOW_BACKGROUND + "WARNING" + Colors.END + " " +
                 (
                     Colors.YELLOW + self.fmt + Colors.END if colored_message
                     else self.fmt

@@ -15,7 +15,7 @@ class Colors:
     CYAN_BACKGROUND = "\033[1;97;46m"
     RED_BACKGROUND = "\033[1;97;41m"
     BROWN_BACKGROUND = "\033[1;97;43m"
-    YELLOW_BACKGROUND = "\033[1;30;48;5;226"
+    YELLOW_BACKGROUND = "\033[1;30;48;5;226m"
     RED_BACKGROUND_BLINK = "\033[1;97;5;41m"
 
     if not __import__("sys").stdout.isatty():
