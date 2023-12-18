@@ -14,4 +14,7 @@ setuptools.setup(
     url='https://github.com/Kesha123/python-logger',
     license='MIT',
     packages=['python_logger'],
+    install_requires=[
+        'pymongo==4.6.1'
+    ]
 )
