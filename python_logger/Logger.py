@@ -1,8 +1,8 @@
-import os
 import logging
 import datetime
 from python_logger.handlers import *
 from python_logger.Formatter import Formatter
+from python_logger.utils.logger_utils import *
 
 
 class Logger:
@@ -17,14 +17,13 @@ class Logger:
     def __init__(
             self,
             handlers: HandlerLevel = HandlerLevel(
-                stream = StreamHandler(level = logging.DEBUG),
-                file = FileHandler(level = logging.DEBUG)
+                stream = StreamHandler(),
             ),
             **kwargs
         ):
         if not self.__initialized:
             self.logger = logging.getLogger(__name__)
-            self.logger.setLevel( min(handlers.stream.level, handlers.file.level) )
+            self.logger.setLevel( highest_level(handlers) )
 
             fmt = '%(asctime)s | %(message)s'
 

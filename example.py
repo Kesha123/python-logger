@@ -9,7 +9,7 @@ class ExampleClass:
         self.logger = Logger(
             handlers=HandlerLevel(
                 stream=StreamHandler(level=logging.INFO),
-                # file=FileHandler(level=logging.DEBUG)
+                file=FileHandler(level=logging.DEBUG)
             )
         )
 
