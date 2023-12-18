@@ -1,6 +1,6 @@
-# Powerful Python Logger
+# Python Logger
 
-Power Python Logger allows you easily initialize loger within the application scope. Logger provides coloring and data persistance in file.
+Python Logger allows you easily initialize loger within the application scope. Logger provides coloring and data persistance in file.
 
 ## Install
 ```

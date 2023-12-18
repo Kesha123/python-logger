@@ -1,10 +1,17 @@
 import logging
 from python_logger.Logger import Logger
 
+from python_logger.handlers import *
+
 class ExampleClass:
 
     def __init__(self) -> None:
-        self.logger = Logger( file="logs.log" )
+        self.logger = Logger(
+            handlers=HandlerLevel(
+                stream=StreamHandler(level=logging.INFO),
+                # file=FileHandler(level=logging.DEBUG)
+            )
+        )
 
     def foo(self, level) -> None:
         match level:
