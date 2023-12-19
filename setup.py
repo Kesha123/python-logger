@@ -13,7 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url='https://github.com/Kesha123/python-logger',
     license='MIT',
-    packages=['python_logger'],
+    packages=['python_logger', 'python_logger.utils'],
     install_requires=[
         'pymongo==4.6.1'
     ]
