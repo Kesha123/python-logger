@@ -41,6 +41,9 @@ class Logger:
                 file_handler.setFormatter(logging.Formatter(fmt))
                 self.logger.addHandler(file_handler)
 
+            if handlers.mongodb:
+                self.logger.addHandler(handlers.mongodb)
+
             self.__initialized = True
 
     def debug(self, message):

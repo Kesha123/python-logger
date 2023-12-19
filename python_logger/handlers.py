@@ -1,8 +1,8 @@
 import logging
 import datetime
-from dataclasses import dataclass, field
 from logging import LogRecord
-from python_logger.utils.mongo import MongoConnection
+from pymongo import MongoClient
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -26,17 +26,18 @@ class StreamHandler:
 class MongoDBHandler(logging.Handler):
 
     def __init__(self, level: int, connection_string: str, database: str, collection: str) -> None:
-        self.__level = level
+        super().__init__(level)
         self.__connection_string = connection_string
         self.__database = database
         self.__collection = collection
         self.__connection = self.__init_connection()
 
     def __init_connection(self):
-        return MongoConnection(self.__connection_string, self.__database).__connection[self.__collection]
+        self.mongodb_client = MongoClient(self.__connection_string)
+        return self.mongodb_client[self.__database][self.__collection]
 
     def emit(self, record: LogRecord) -> None:
-        if record.levelno == self.__level:
+        if record.levelno >= self.level:
             self.__connection.insert_one({
                 "timestamp": datetime.datetime.today().isoformat(),
                 "level": record.levelname,

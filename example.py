@@ -12,9 +12,8 @@ class ExampleClass:
     def __init__(self) -> None:
         self.logger = Logger(
             handlers=HandlerLevel(
-                stream=StreamHandler(level=logging.INFO),
-                # file=FileHandler(level=logging.DEBUG)
-                mongodb=MongoDBHandler(logging.DEBUG, connection_string, database, collection)
+                stream=StreamHandler(level=logging.DEBUG),
+                mongodb=MongoDBHandler(logging.WARNING, connection_string, database, collection)
             )
         )
 
