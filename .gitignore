@@ -177,3 +177,4 @@ pyrightconfig.json
 bin/
 lib64
 *.cfg
+.vscode/
