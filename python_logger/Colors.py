@@ -27,9 +27,3 @@ class Colors:
             kernel32 = __import__("ctypes").windll.kernel32
             kernel32.SetConsoleMode(kernel32.GetStdHandle(-11), 7)
             del kernel32
-
-
-if __name__ == '__main__':
-    for i in dir(Colors):
-        if i[0:1] != "_" and i != "END":
-            print("{:>16} {}".format(i, getattr(Colors, i) + i + Colors.END))
