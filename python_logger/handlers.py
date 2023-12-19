@@ -25,7 +25,7 @@ class StreamHandler:
 
 class MongoDBHandler(logging.Handler):
 
-    def __init__(self, level: int, connection_string: str, database: str, collection: str) -> None:
+    def __init__(self, level: int = logging.DEBUG, connection_string: str = None, database: str = None, collection: str = None) -> None:
         super().__init__(level)
         self.__connection_string = connection_string
         self.__database = database

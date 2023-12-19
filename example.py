@@ -3,8 +3,8 @@ from python_logger.Logger import Logger
 
 from python_logger.handlers import *
 
-connection_string = "mongodb+srv://admin:M5sv5jsEjQSSwTEW@cluster0.bkxt6hl.mongodb.net/?retryWrites=true&w=majority"
-database = "python-logging"
+connection_string = "connection-string"
+database = "database"
 collection = "logs"
 
 class ExampleClass:
@@ -13,6 +13,7 @@ class ExampleClass:
         self.logger = Logger(
             handlers=HandlerLevel(
                 stream=StreamHandler(level=logging.DEBUG),
+                file=FileHandler(level=logging.INFO),
                 mongodb=MongoDBHandler(logging.WARNING, connection_string, database, collection)
             )
         )
