@@ -7,4 +7,6 @@ def highest_level(handler_level: HandlerLevel) -> int:
         levels.append(handler_level.stream.level)
     if handler_level.file:
         levels.append(handler_level.file.level)
+    if handler_level.mongodb:
+        levels.append(handler_level.mongodb)
     return min(levels)
